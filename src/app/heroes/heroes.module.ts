@@ -9,6 +9,7 @@ import { ListComponent } from "./components/list/list.component";
   declarations:[
     HeroeComponent,
     ListComponent
+
   ],
   exports:[
     HeroeComponent,
