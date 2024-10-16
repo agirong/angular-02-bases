@@ -7,6 +7,10 @@
   let isEven = even;
   let isOdd = odd"
   class="list-group-item"
+  [ngClass]="{
+    'list-group-item-primary':isEven,
+    'list-group-item-dark':isLast
+  }"
   >
     <strong class="text-primary">{{i+1}}. </strong>
     <span>{{item.name}} - </span>
