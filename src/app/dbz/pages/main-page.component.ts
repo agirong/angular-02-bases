@@ -23,5 +23,8 @@ export class MainPageComponent {
   onNewCharacter(character:Character):void{
     console.log('MainPage');
     console.log(character);
+
+      // Agregar el nuevo personaje al arreglo
+    this.characters.push(character);
   }
 }
