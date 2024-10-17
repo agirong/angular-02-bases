@@ -15,11 +15,12 @@ export class ListComponent {
 
     //Evento a emitir
     @Output()
-    public onIndexDelete: EventEmitter<number> = new EventEmitter();
+    public onIndexDelete: EventEmitter<string> = new EventEmitter();
 
-    onDeleteCharacter(index:number):void{
-      //Emitir el evento para que lo reciba el MainPageComponent
-      this.onIndexDelete.emit(index)
-      console.log(index)
+    onDeleteCharacter( id?: string ):void {
+
+      if ( !id ) return;
+      console.log({id})
+      this.onIndexDelete.emit( id );
     }
  }
