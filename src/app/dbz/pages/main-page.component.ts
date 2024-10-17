@@ -27,4 +27,9 @@ export class MainPageComponent {
       // Agregar el nuevo personaje al arreglo
     this.characters.push(character);
   }
+
+  //Metodo para recibie el index del elemento a eliminar.
+  onDeleteCharacter(index:number):void{
+    this.characters.splice(index,1);
+  }
 }

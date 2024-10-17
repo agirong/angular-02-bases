@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Character } from '../../interfaces/character.interface';
 
 @Component({
@@ -12,4 +12,14 @@ export class ListComponent {
       name:'Trunks',
       power:10
     }]
+
+    //Evento a emitir
+    @Output()
+    public onIndexDelete: EventEmitter<number> = new EventEmitter();
+
+    onDeleteCharacter(index:number):void{
+      //Emitir el evento para que lo reciba el MainPageComponent
+      this.onIndexDelete.emit(index)
+      console.log(index)
+    }
  }
