@@ -1,15 +1,13 @@
-<h1>Personajes de DBZ</h1>
+<h2>Personajes</h2>
 <hr>
 
-<div class="row">
-  <div class="col">
-    <!-- Recibir el evento onIndexDelete -->
-    <dbz-list
-    (onIndexDelete)="onDeleteCharacter($event)"
-    [characterList]="characters"
-    ></dbz-list>
-  </div>
-  <div class="col">
+<div class="row mt-4">
+  <div class="col-12 col-md-6 mb-3">
     <dbz-add-character (onNewCharacter)="onNewCharacter($event)"></dbz-add-character>
   </div>
+  <div class="col-12 col-md-6">
+    <!-- Recibir el evento onIndexDelete -->
+    <dbz-list (onIndexDelete)="onDeleteCharacter($event)" [characterList]="characters"></dbz-list>
+  </div>
+
 </div>

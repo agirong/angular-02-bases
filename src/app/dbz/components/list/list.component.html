@@ -1,4 +1,4 @@
-<h4>Listado</h4>
+<h5>Listado</h5>
 <ul class="list-group">
   <li *ngFor="let item of characterList;
   let i = index;
@@ -6,21 +6,20 @@
   let isLast = last;
   let isEven = even;
   let isOdd = odd"
-  class="list-group-item d-flex justify-content-between align-items-center"
+  class="list-group-item d-flex justify-content-between align-items-center flex-wrap"
   [ngClass]="{
-    'list-group-item-primary':isEven,
-    'list-group-item-dark':isLast
+    'list-group-item-primary':isEven
   }"
   >
-    <div>
+    <div class="mb-2">
       <strong class="text-primary">{{i+1}}. </strong>
       <span>{{item.name}} - </span>
       <strong>Poder: </strong>
       <span>{{item.power}}</span>
     </div>
-    <div>
-      <button (click)="onDeleteCharacter( item.id )" class="btn btn-danger">🗑️</button>
-      <button (click)="onEditCharacter()" class="btn btn-warning m-1">🖊️</button>
+    <div class="d-flex gap-2">
+      <button (click)="onDeleteCharacter( item.id )" class="btn btn-danger btn-sm">🗑️</button>
+      <button (click)="onEditCharacter()" class="btn btn-warning btn-sm">🖊️</button>
     </div>
   </li>
 </ul>
