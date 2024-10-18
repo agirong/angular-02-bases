@@ -23,4 +23,8 @@ export class ListComponent {
       console.log({id})
       this.onIndexDelete.emit( id );
     }
+
+    onEditCharacter():void{
+      alert("Aún no implementado XD");
+    }
  }

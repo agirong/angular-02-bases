@@ -18,7 +18,9 @@
       <strong>Poder: </strong>
       <span>{{item.power}}</span>
     </div>
-
-    <button (click)="onDeleteCharacter( item.id )" class="btn btn-danger">x</button>
+    <div>
+      <button (click)="onDeleteCharacter( item.id )" class="btn btn-danger">🗑️</button>
+      <button (click)="onEditCharacter()" class="btn btn-warning m-1">🖊️</button>
+    </div>
   </li>
 </ul>
