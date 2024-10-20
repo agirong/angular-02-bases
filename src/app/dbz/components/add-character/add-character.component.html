@@ -1,4 +1,4 @@
-<h5>Agregar Personajes</h5>
+<h5>{{ isEditing ? 'Editar Personaje' : 'Agregar Personaje' }}</h5>
 <form action="" class="row g-3" (ngSubmit)="emitCharacter()">
   <div class="col-12">
       <input type="text"
@@ -19,9 +19,10 @@
   <div class="col-12">
     <button
       type="submit"
-      class="btn btn-primary w-100"
+      class="btn w-100"
+      [ngClass]="isEditing ? 'btn-primary' : 'btn-success'"
     >
-    Guardar
+    {{ isEditing?'Actualizar':'Agregar'}}
     </button>
   </div>
   <!-- <pre>{{character | json}}</pre> -->

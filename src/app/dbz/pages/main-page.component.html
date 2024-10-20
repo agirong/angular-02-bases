@@ -5,6 +5,7 @@
   <div class="col-12 col-md-6 mb-3">
     <dbz-add-character
     [characterToEdit]="characterToEdit || { name: '', power: 0 }"
+    [isEditing]="isEditing"
     (onNewCharacter)="onNewCharacter($event)">
     </dbz-add-character>
   </div>

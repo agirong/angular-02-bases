@@ -10,6 +10,7 @@ import { Character } from '../interfaces/character.interface';
 export class MainPageComponent {
 
   public characterToEdit: Character | null = null;
+  public isEditing:boolean = false;
 
   constructor(public dbzService:DbzService){}
 
@@ -24,6 +25,7 @@ export class MainPageComponent {
       console.log('Si hay un personaje en edición, actualizarlo onNewCharacter() main')
       this.dbzService.updateCharacter(character, this.characterToEdit.id!);
       this.characterToEdit = null; // Limpiar el formulario
+      this.isEditing = false;
     } else {
       this.dbzService.addCharacter(character);
     }
@@ -36,5 +38,7 @@ export class MainPageComponent {
   onEditCharacter(character:Character):void{
     console.log('Se ejecutó el onEditCharacter de main con:', character);
     this.characterToEdit = {...character}
+    this.isEditing = true;
+    console.log('isEditing:', this.isEditing);
   }
 }
