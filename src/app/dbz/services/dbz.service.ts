@@ -34,7 +34,19 @@ export class DbzService {
   // }
 
   deleteCharacterById(id:string){
-    this.characters = this.characters.filter(character => character.id !== id);
+    const characterToDelete = this.characters.find(character=>character.id==id)
+    if(characterToDelete){
+      this.characters = this.characters.filter(character => character.id !== id);
+      alert('Se eliminará el personaje: '+characterToDelete.name);
+    }
+  }
+
+  updateCharacter(updatedCharacter: Character, id: string): void {
+    const index = this.characters.findIndex(character => character.id === id);
+    if (index !== -1) {
+      this.characters[index] = { ...updatedCharacter, id }; // Mantener el mismo ID
+      console.log('Se editó el personaje: '+index);
+    }
   }
 
 }

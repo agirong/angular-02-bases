@@ -3,11 +3,19 @@
 
 <div class="row mt-4">
   <div class="col-12 col-md-6 mb-3">
-    <dbz-add-character (onNewCharacter)="onNewCharacter($event)"></dbz-add-character>
+    <dbz-add-character
+    [characterToEdit]="characterToEdit || { name: '', power: 0 }"
+    (onNewCharacter)="onNewCharacter($event)">
+    </dbz-add-character>
   </div>
   <div class="col-12 col-md-6">
     <!-- Recibir el evento onIndexDelete -->
-    <dbz-list (onIndexDelete)="onDeleteCharacter($event)" [characterList]="characters"></dbz-list>
+    <dbz-list
+      (onIndexDelete)="onDeleteCharacter($event)"
+      [characterList]="characters"
+      (onEdit)="onEditCharacter($event)"
+    >
+    </dbz-list>
   </div>
 
 </div>

@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, output, Output } from '@angular/core';
 import { Character } from '../../interfaces/character.interface';
 
 @Component({
@@ -13,18 +13,20 @@ export class ListComponent {
       power:10
     }]
 
-    //Evento a emitir
+    //Evento a emitir para eliminar
     @Output()
     public onIndexDelete: EventEmitter<string> = new EventEmitter();
-
     onDeleteCharacter( id?: string ):void {
-
       if ( !id ) return;
       console.log({id})
       this.onIndexDelete.emit( id );
     }
 
-    onEditCharacter():void{
-      alert("Aún no implementado XD");
+    //Evento a emitir para actualizar
+    @Output()
+    public onEdit:EventEmitter<Character> = new EventEmitter();
+    onEditCharacter(character: Character): void {
+      console.log('Emitir'+ JSON.stringify(character))
+      this.onEdit.emit(character);
     }
  }

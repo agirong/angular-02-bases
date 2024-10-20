@@ -9,16 +9,32 @@ import { Character } from '../interfaces/character.interface';
 
 export class MainPageComponent {
 
+  public characterToEdit: Character | null = null;
+
   constructor(public dbzService:DbzService){}
+
   get characters():Character[]{
     return [...this.dbzService.characters];
+  }
+
+  // Método para manejar la adición de un nuevo personaje
+  onNewCharacter(character: Character): void {
+    if (this.characterToEdit) {
+      // Si hay un personaje en edición, actualizarlo
+      console.log('Si hay un personaje en edición, actualizarlo onNewCharacter() main')
+      this.dbzService.updateCharacter(character, this.characterToEdit.id!);
+      this.characterToEdit = null; // Limpiar el formulario
+    } else {
+      this.dbzService.addCharacter(character);
+    }
   }
 
   onDeleteCharacter(id:string):void{
     this.dbzService.deleteCharacterById(id);
   }
 
-  onNewCharacter(character:Character):void{
-    this.dbzService.addCharacter(character);
+  onEditCharacter(character:Character):void{
+    console.log('Se ejecutó el onEditCharacter de main con:', character);
+    this.characterToEdit = {...character}
   }
 }
